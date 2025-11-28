@@ -80,8 +80,10 @@ st.markdown("<h1 style='color:#1DB954; font-weight:700;'>Spotify Feature Explore
 
 # CARGA DE DATOS
 @st.cache_data
-def load_data(path="/content/SpotifyFeatures.csv"):
-    return pd.read_csv(path)
+def load_data():
+    url = "https://docs.google.com/spreadsheets/d/1anhHte-fYwk79coMNMcUah9BlGkKdRiLK1S5W0-eDD0/export?format=csv&gid=1103294838"
+    df = pd.read_csv(url)
+    return df
 
 df = load_data()
 
@@ -228,5 +230,6 @@ with tab3:
     )
 
     st.plotly_chart(fig3, use_container_width=True)
+
 
     st.markdown("---")
